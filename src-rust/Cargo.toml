@@ -1,9 +1,10 @@
 [package]
-name = "src-rust"
+name = "onyx-core"
 version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+edition = "2021"
 
 [lib]
-path = "lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
