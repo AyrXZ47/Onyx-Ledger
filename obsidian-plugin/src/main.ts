@@ -1,4 +1,4 @@
-import { Plugin } from 'obsidian';
+import { Plugin, Notice } from 'obsidian';
 
 export default class OnyxLedgerPlugin extends Plugin {
   onload() {

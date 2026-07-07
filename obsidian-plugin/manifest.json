@@ -1,0 +1,10 @@
+{
+  "id": "onyx-ledger",
+  "name": "Onyx Ledger",
+  "version": "0.1.0",
+  "minAppVersion": "1.7.2",
+  "description": "Motor financiero local-first con contabilidad de base cero. Privacidad absoluta.",
+  "author": "Yovick R. Z.",
+  "authorUrl": "https://github.com/AyrXZ47",
+  "isDesktopOnly": false
+}
