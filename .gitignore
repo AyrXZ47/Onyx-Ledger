@@ -63,3 +63,4 @@ fp-info-cache
 .aider*
 **/target/
 **/node_modules/
+obsidian-plugin/dist/

@@ -2,15 +2,16 @@ import { build } from 'esbuild';
 import sveltePlugin from 'esbuild-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 
-export default {
+build({
   entryPoints: ['src/main.ts'],
   outfile: 'dist/main.js',
   bundle: true,
-  target: 'node14.17', // Adjust as needed
+  external: ['obsidian'],
+  format: 'cjs',
+  target: 'es2020',
   plugins: [
     sveltePlugin({
       preprocess: sveltePreprocess()
     })
-  ],
-  format: 'cjs'
-};
+  ]
+}).catch(() => process.exit(1));
