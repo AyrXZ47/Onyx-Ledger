@@ -1,4 +1,5 @@
-import { ItemView } from 'obsidian';
+import { ItemView, WorkspaceLeaf } from 'obsidian';
+import { mount, unmount } from 'svelte';
 import App from './App.svelte';
 
 export const VIEW_TYPE_ONYX = 'onyx-ledger-view';
@@ -19,10 +20,14 @@ export class OnyxView extends ItemView {
   }
 
   async onOpen() {
-    this.component = new App({ target: this.contentEl });
+    this.component = mount(App, {
+      target: this.contentEl,
+    });
   }
 
-  onClose() {
-    this.component.$destroy();
+  async onClose() {
+    if (this.component) {
+      unmount(this.component);
+    }
   }
 }
