@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "obsidian": "^1.13.1",
+    "onyx-core": "link:../src-rust/pkg",
     "svelte": "^5.56.4"
   },
   "devDependencies": {

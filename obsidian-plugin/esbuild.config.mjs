@@ -9,6 +9,12 @@ build({
   external: ['obsidian'],
   format: 'cjs',
   target: 'es2020',
+  logOverride: {
+    'empty-import-meta': 'silent',
+  },
+  loader: {
+    '.wasm': 'base64'
+  },
   plugins: [
     sveltePlugin({
       preprocess: sveltePreprocess()
