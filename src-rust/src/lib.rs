@@ -1,6 +1,5 @@
 use serde::{Deserialize, Serialize};
 use std::cell::RefCell;
-use std::collections::HashMap;
 use std::sync::atomic::{AtomicU32, Ordering};
 use wasm_bindgen::prelude::*;
 
@@ -75,15 +74,15 @@ impl Workspace {
 }
 
 thread_local! {
-    static WORKSPACE_STORE: RefCell<Option<HashMap<String, Workspace>>> = RefCell::new(None);
+    static ACTIVE_WORKSPACE: RefCell<Option<Workspace>> = RefCell::new(None);
 }
 
 static NEXT_ID: AtomicU32 = AtomicU32::new(1);
 
 #[wasm_bindgen]
 pub fn init_system() {
-    WORKSPACE_STORE.with(|store| {
-        *store.borrow_mut() = Some(HashMap::new());
+    ACTIVE_WORKSPACE.with(|ws| {
+        *ws.borrow_mut() = None;
     });
 }
 
@@ -99,20 +98,15 @@ pub fn create_workspace(name: &str, ws_type: &str) -> String {
     let id = NEXT_ID.fetch_add(1, Ordering::Relaxed).to_string();
     let workspace = Workspace::new(id.clone(), name.to_string(), workspace_type);
 
-    WORKSPACE_STORE.with(|store| {
-        let mut guard = store.borrow_mut();
-        if let Some(ref mut map) = *guard {
-            map.insert(id.clone(), workspace);
-        } else {
-            panic!("system not initialized: call init_system() first");
-        }
+    ACTIVE_WORKSPACE.with(|ws| {
+        *ws.borrow_mut() = Some(workspace);
     });
 
     id
 }
 
 #[wasm_bindgen]
-pub fn validate_and_add_transaction(ws_id: &str, transaction_json: &str) -> Result<(), JsValue> {
+pub fn validate_and_add_transaction(transaction_json: &str) -> Result<(), JsValue> {
     let transaction: Transaction = serde_json::from_str(transaction_json).map_err(|e| {
         JsValue::from_str(&format!("failed to parse transaction JSON: {e}"))
     })?;
@@ -123,14 +117,10 @@ pub fn validate_and_add_transaction(ws_id: &str, transaction_json: &str) -> Resu
         ));
     }
 
-    WORKSPACE_STORE.with(|store| {
-        let mut guard = store.borrow_mut();
-        let map = guard
-            .as_mut()
-            .ok_or_else(|| JsValue::from_str("system not initialized: call init_system() first"))?;
-
-        let workspace = map.get_mut(ws_id).ok_or_else(|| {
-            JsValue::from_str(&format!("workspace not found: {ws_id}"))
+    ACTIVE_WORKSPACE.with(|ws| {
+        let mut guard = ws.borrow_mut();
+        let workspace = guard.as_mut().ok_or_else(|| {
+            JsValue::from_str("no active workspace: create one first")
         })?;
 
         workspace.ledger.transactions.push(transaction);
