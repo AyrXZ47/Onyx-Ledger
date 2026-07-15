@@ -1,141 +1,125 @@
-<script>
-  import init, { init_system, create_workspace } from 'onyx-core';
+<script lang="ts">
+  import init, { init_system } from 'onyx-core';
   import wasmBase64 from 'onyx-core/onyx_core_bg.wasm';
 
-  let engineReady = $state(false);
-  let engineError = $state(null);
-  let workspaces = $state([]);
-  let currentScreen = $state('dashboard');
-  let activeWorkspaceId = $state(null);
+  // --- ESTADO (Runas de Svelte 5) ---
+  let engineState = $state('Loading Iron Core...');
+  let isCoreReady = $state(false);
+  
+  // Array temporal de prueba (Hasta que conectemos la persistencia física)
+  let workspaces = $state([
+    { id: '1', name: 'Personal Finances', type: 'Personal', tier: 'Free' },
+    { id: '2', name: 'ACME Corp Accounting', type: 'Business', tier: 'Premium' }
+  ]);
 
+  // --- INICIALIZACIÓN DEL NÚCLEO WASM ---
   $effect(() => {
     const wasmBytes = Uint8Array.from(atob(wasmBase64), c => c.charCodeAt(0));
-    init({ module_or_path: wasmBytes })
-      .then(() => {
-        init_system();
-        engineReady = true;
-      })
-      .catch(err => {
-        engineError = err;
-        console.error(err);
-      });
+    init({ module_or_path: wasmBytes }).then(() => {
+      init_system();
+      engineState = 'Iron Core ready';
+      isCoreReady = true;
+    }).catch(err => {
+      engineState = "Core catastrophic failure: " + err;
+      console.error(err);
+    });
   });
 
-  function handleAddWorkspace(type) {
-    const name = type + ' Project';
-    const id = create_workspace(name, type);
-    workspaces = [...workspaces, { id, name, type }];
-    activeWorkspaceId = id;
+  // --- FUNCIONES INTERFAZ ---
+  function createWorkspace(type: string, tier: string) {
+    if (!isCoreReady) return;
+    // Esto es temporal: solo empuja un objeto falso a la vista
+    workspaces.push({
+      id: crypto.randomUUID(),
+      name: `New ${type} Workspace`,
+      type: type,
+      tier: tier
+    });
   }
 
-  function handleOpenWorkspace(id) {
-    activeWorkspaceId = id;
-    currentScreen = 'workspace';
+  function openWorkspace(id: string) {
+    console.log(`Abriendo espacio de trabajo: ${id}`);
+    // Aquí conectaremos la lógica para cambiar la vista hacia el Ledger seleccionado
   }
-
-  const tiers = [
-    { type: 'Personal', label: 'Free', desc: 'Individual finance tracking' },
-    { type: 'Freelance', label: 'Plus', desc: 'Contractor & freelance management' },
-    { type: 'Business', label: 'Premium', desc: 'Full business accounting suite' },
-  ];
 </script>
 
-{#if !engineReady}
-  <div class="onyx-loading">
-    <div class="onyx-spinner"></div>
-  </div>
-{:else if engineError}
-  <div class="onyx-error">
-    <h2>Core initialization failed</h2>
-    <p>{engineError.message ?? engineError}</p>
-  </div>
-{:else}
-  <div class="onyx-app">
-    <header class="onyx-header">
-      <h1 class="onyx-title">Onyx Ledger</h1>
-      <button class="hamburger" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="6" x2="20" y2="6"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="18" x2="20" y2="18"/>
-        </svg>
-      </button>
-    </header>
+<div class="onyx-container">
+  
+  <header class="onyx-header">
+    <h1 class="onyx-title">Onyx Ledger</h1>
+    <button class="onyx-icon-btn" aria-label="Menu" title="Settings">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+  </header>
 
-    <section class="tier-section">
-      <div class="tier-grid">
-        {#each tiers as tier}
-          <div class="tier-card">
-            <div class="tier-card-head">
-              <span class="tier-type">{tier.type}</span>
-              <span class="tier-badge">{tier.label}</span>
-            </div>
-            <p class="tier-desc">{tier.desc}</p>
-            <button class="tier-btn" onclick={() => handleAddWorkspace(tier.type)}>
-              New Workspace
-            </button>
-          </div>
-        {/each}
+  {#if !isCoreReady}
+    <div class="onyx-loading">
+      <p>{engineState}</p>
+    </div>
+  {:else}
+    
+    <div class="onyx-tiers-grid">
+      
+      <div class="onyx-card">
+        <div class="card-header">
+          <h2>Personal</h2>
+          <span class="badge badge-free">Free</span>
+        </div>
+        <p class="card-desc">Individual finance tracking with zero-based budgeting.</p>
+        <button class="mod-cta" onclick={() => createWorkspace('Personal', 'Free')}>New Workspace</button>
       </div>
-    </section>
 
-    {#if workspaces.length > 0}
-      <section class="projects-section">
-        <h2 class="section-title">Existing Projects</h2>
-        <div class="projects-grid">
+      <div class="onyx-card">
+        <div class="card-header">
+          <h2>Freelance</h2>
+          <span class="badge badge-premium">Premium</span>
+        </div>
+        <p class="card-desc">Contractor management, invoicing, and tax estimations.</p>
+        <button class="mod-cta" onclick={() => createWorkspace('Freelance', 'Premium')}>New Workspace</button>
+      </div>
+
+      <div class="onyx-card">
+        <div class="card-header">
+          <h2>Business</h2>
+          <span class="badge badge-premium">Premium</span>
+        </div>
+        <p class="card-desc">Full business accounting suite for multiple entities.</p>
+        <button class="mod-cta" onclick={() => createWorkspace('Business', 'Premium')}>New Workspace</button>
+      </div>
+
+    </div>
+
+    <div class="onyx-existing-section">
+      <h3>Existing Projects</h3>
+      {#if workspaces.length === 0}
+        <p class="empty-state">No workspaces created yet.</p>
+      {:else}
+        <div class="onyx-projects-list">
           {#each workspaces as ws}
-            <div class="project-card" onclick={() => handleOpenWorkspace(ws.id)} role="button" tabindex="0">
+            <button type="button" class="project-item" onclick={() => openWorkspace(ws.id)}>
               <div class="project-info">
-                <span class="project-name">{ws.name}</span>
-                <span class="project-type">{ws.type}</span>
+                <h4>{ws.name}</h4>
+                <span class="project-meta">{ws.type} • {ws.tier}</span>
               </div>
-              <button class="open-btn" onclick={(e) => { e.stopPropagation(); handleOpenWorkspace(ws.id); }}>
-                Open
-              </button>
-            </div>
+              <div class="project-action">Open</div>
+            </button>
           {/each}
         </div>
-      </section>
-    {/if}
-  </div>
-{/if}
+      {/if}
+    </div>
+
+  {/if}
+</div>
 
 <style>
-  .onyx-loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-  }
-
-  .onyx-spinner {
-    width: 32px;
-    height: 32px;
-    border: 3px solid var(--background-modifier-border);
-    border-top-color: var(--interactive-accent);
-    border-radius: 50%;
-    animation: onyx-spin 0.8s linear infinite;
-  }
-
-  @keyframes onyx-spin {
-    to { transform: rotate(360deg); }
-  }
-
-  .onyx-error {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-muted);
-  }
-
-  .onyx-error h2 {
-    color: var(--text-error, var(--text-normal));
-    margin-bottom: 0.5rem;
-  }
-
-  .onyx-app {
-    max-width: 800px;
+  /* === CSS NATIVO DE OBSIDIAN === */
+  
+  .onyx-container {
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
+    font-family: var(--font-interface);
+    color: var(--text-normal);
   }
 
   .onyx-header {
@@ -143,179 +127,159 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 1rem;
   }
 
   .onyx-title {
-    font-size: 1.75rem;
+    margin: 0;
+    font-size: 2em;
     font-weight: 700;
     color: var(--text-normal);
-    margin: 0;
-    letter-spacing: -0.02em;
   }
 
-  .hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
+  .onyx-icon-btn {
+    background: transparent;
+    box-shadow: none;
     border: none;
     color: var(--text-muted);
     cursor: pointer;
-    padding: 4px;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
+    padding: 8px;
+    border-radius: var(--radius-s);
+    transition: color 0.2s ease, background 0.2s ease;
   }
 
-  .hamburger:hover {
+  .onyx-icon-btn:hover {
     color: var(--text-normal);
     background: var(--background-modifier-hover);
   }
 
-  .tier-section {
-    margin-bottom: 2rem;
+  .onyx-loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-family: var(--font-monospace);
   }
 
-  .tier-grid {
+  /* --- Cuadrícula de Tarjetas --- */
+  .onyx-tiers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
-  .tier-card {
+  .onyx-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-l);
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    background: var(--background-secondary);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s ease, transform 0.1s ease;
   }
 
-  .tier-card:hover {
+  .onyx-card:hover {
     border-color: var(--interactive-accent);
+    /* transform: translateY(-2px); Opcional: pequeño salto al pasar el mouse */
   }
 
-  .tier-card-head {
+  .card-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    align-items: flex-start;
+    margin-bottom: 1rem;
   }
 
-  .tier-type {
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.25em;
+  }
+
+  .badge {
+    font-size: 0.75em;
+    padding: 2px 8px;
+    border-radius: var(--radius-s);
     font-weight: 600;
-    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-free {
+    background-color: var(--background-modifier-success);
+    color: var(--text-on-accent);
+  }
+
+  .badge-premium {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+  }
+
+  .card-desc {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    line-height: 1.4;
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- Lista de Proyectos Existentes --- */
+  .onyx-existing-section {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 2rem;
+  }
+
+  .onyx-existing-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2em;
     color: var(--text-normal);
   }
 
-  .tier-badge {
-    font-size: 0.75rem;
+  .empty-state {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .onyx-projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-primary-alt);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .project-item:hover {
+    background-color: var(--background-modifier-hover);
+    border-color: var(--interactive-accent);
+  }
+
+  .project-info h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--text-normal);
+  }
+
+  .project-meta {
+    font-size: 0.85em;
+    color: var(--text-muted);
+  }
+
+  .project-action {
+    font-size: 0.9em;
     font-weight: 600;
     color: var(--interactive-accent);
-    background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
-    padding: 2px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  .tier-desc {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin: 0 0 auto 0;
-    line-height: 1.5;
-  }
-
-  .tier-btn {
-    margin-top: 16px;
-    padding: 10px 0;
-    width: 100%;
-    background: var(--interactive-normal);
-    color: var(--text-normal);
-    border: none;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    font-family: inherit;
-    text-align: center;
-  }
-
-  .tier-btn:hover {
-    background: var(--interactive-accent);
-    color: var(--text-on-accent, #fff);
-  }
-
-  .projects-section {
-    border-top: 1px solid var(--background-modifier-border);
-    padding-top: 1.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .section-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin: 0 0 1rem 0;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-  }
-
-  .project-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    background: var(--background-secondary);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: border-color 0.15s;
-  }
-
-  .project-card:hover {
-    border-color: var(--interactive-accent);
-  }
-
-  .project-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .project-name {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--text-normal);
-  }
-
-  .project-type {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .open-btn {
-    padding: 6px 14px;
-    background: var(--interactive-normal);
-    color: var(--text-normal);
-    border: none;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    font-family: inherit;
-  }
-
-  .open-btn:hover {
-    background: var(--interactive-accent);
-    color: var(--text-on-accent, #fff);
   }
 </style>
