@@ -101,26 +101,29 @@
 
 <style>
   .onyx-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2.5rem 2rem;
+    width: 100% !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 2rem !important;
     font-family: var(--font-interface);
     color: var(--text-normal);
+    box-sizing: border-box;
   }
 
   .onyx-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2.5rem;
-    border-bottom: 1px solid var(--background-modifier-border);
+    margin-bottom: 3rem !important;
+    border-bottom: 2px solid var(--background-modifier-border);
     padding-bottom: 1.25rem;
   }
 
   .onyx-title {
     margin: 0;
     font-size: 2.4em;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.5px;
     color: var(--text-normal);
   }
 
@@ -152,6 +155,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     align-items: start;
+    width: 100% !important;
   }
 
   @media (max-width: 800px) {
@@ -161,6 +165,7 @@
   }
 
   .tier-panel {
+    width: 100% !important;
     background: var(--background-secondary);
     border: 2px solid var(--background-modifier-border);
     border-radius: 16px;
@@ -182,8 +187,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 1.5rem 2rem;
+    width: 100% !important;
+    padding: 1.5rem 2rem !important;
     background: none;
     border: none;
     cursor: pointer;
@@ -214,7 +219,7 @@
 
   .tier-badge {
     font-size: 0.75em;
-    padding: 3px 12px;
+    padding: 4px 12px;
     border-radius: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -242,7 +247,7 @@
   }
 
   .tier-body {
-    padding: 0 2rem 1.5rem;
+    padding: 0 2rem 1.5rem !important;
   }
 
   .tier-desc {
@@ -253,8 +258,8 @@
   }
 
   .tier-btn {
-    width: 100%;
-    padding: 12px 0;
+    width: 100% !important;
+    padding: 12px 0 !important;
     background: var(--interactive-normal);
     color: var(--text-normal);
     border: none;
