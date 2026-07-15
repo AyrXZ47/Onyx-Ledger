@@ -53,30 +53,28 @@
   <div class="onyx-app">
     <header class="onyx-header">
       <h1 class="onyx-title">Onyx Ledger</h1>
+      <button class="hamburger" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
     </header>
 
     <section class="tier-section">
-      <div class="tier-cards">
+      <div class="tier-grid">
         {#each tiers as tier}
-          <button class="tier-card" onclick={() => handleAddWorkspace(tier.type)}>
-            <span class="tier-indicator tier-{tier.type.toLowerCase()}"></span>
-            <span class="tier-type">{tier.type}</span>
-            <span class="tier-label">{tier.label}</span>
-            <span class="tier-desc">{tier.desc}</span>
-          </button>
-        {/each}
-      </div>
-    </section>
-
-    <section class="action-section">
-      <div class="add-workspace-group">
-        {#each tiers as tier}
-          <button
-            class="add-btn"
-            onclick={() => handleAddWorkspace(tier.type)}
-          >
-            New {tier.type} Workspace
-          </button>
+          <div class="tier-card">
+            <div class="tier-card-head">
+              <span class="tier-type">{tier.type}</span>
+              <span class="tier-badge">{tier.label}</span>
+            </div>
+            <p class="tier-desc">{tier.desc}</p>
+            <button class="tier-btn" onclick={() => handleAddWorkspace(tier.type)}>
+              New Workspace
+            </button>
+          </div>
         {/each}
       </div>
     </section>
@@ -84,14 +82,14 @@
     {#if workspaces.length > 0}
       <section class="projects-section">
         <h2 class="section-title">Existing Projects</h2>
-        <div class="projects-list">
+        <div class="projects-grid">
           {#each workspaces as ws}
-            <div class="project-item">
+            <div class="project-card" onclick={() => handleOpenWorkspace(ws.id)} role="button" tabindex="0">
               <div class="project-info">
                 <span class="project-name">{ws.name}</span>
                 <span class="project-type">{ws.type}</span>
               </div>
-              <button class="open-btn" onclick={() => handleOpenWorkspace(ws.id)}>
+              <button class="open-btn" onclick={(e) => { e.stopPropagation(); handleOpenWorkspace(ws.id); }}>
                 Open
               </button>
             </div>
@@ -135,13 +133,15 @@
   }
 
   .onyx-app {
-    padding: 1.5rem;
-    max-width: 640px;
+    max-width: 800px;
     margin: 0 auto;
+    padding: 2rem;
   }
 
   .onyx-header {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
   }
 
@@ -153,114 +153,103 @@
     letter-spacing: -0.02em;
   }
 
-  .tier-section {
-    margin-bottom: 1.5rem;
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
   }
 
-  .tier-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .hamburger:hover {
+    color: var(--text-normal);
+    background: var(--background-modifier-hover);
+  }
+
+  .tier-section {
+    margin-bottom: 2rem;
+  }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
   }
 
   .tier-card {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.25rem;
+    flex-direction: column;
     background: var(--background-secondary);
     border: 1px solid var(--background-modifier-border);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    text-align: left;
-    font-family: inherit;
-    color: var(--text-normal);
-    width: 100%;
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
   }
 
   .tier-card:hover {
     border-color: var(--interactive-accent);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .tier-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .tier-personal {
-    background: #84cc16;
-  }
-
-  .tier-freelance {
-    background: #eab308;
-  }
-
-  .tier-business {
-    background: #3b82f6;
+  .tier-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
   }
 
   .tier-type {
     font-weight: 600;
-    font-size: 0.95rem;
-    min-width: 80px;
+    font-size: 1.05rem;
+    color: var(--text-normal);
   }
 
-  .tier-label {
-    font-size: 0.8rem;
-    font-weight: 500;
+  .tier-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--interactive-accent);
-    background: color-mix(in srgb, var(--interactive-accent) 12%, transparent);
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
+    background: color-mix(in srgb, var(--interactive-accent) 14%, transparent);
+    padding: 2px 10px;
+    border-radius: 20px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
   }
 
   .tier-desc {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-left: auto;
-    display: none;
+    margin: 0 0 auto 0;
+    line-height: 1.5;
   }
 
-  @media (min-width: 500px) {
-    .tier-desc {
-      display: inline;
-    }
-  }
-
-  .action-section {
-    margin-bottom: 1.5rem;
-  }
-
-  .add-workspace-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .add-btn {
-    padding: 0.7rem 1.25rem;
-    background: var(--interactive-accent);
-    color: var(--text-on-accent, #fff);
+  .tier-btn {
+    margin-top: 16px;
+    padding: 10px 0;
+    width: 100%;
+    background: var(--interactive-normal);
+    color: var(--text-normal);
     border: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.15s;
+    transition: background 0.15s, color 0.15s;
     font-family: inherit;
+    text-align: center;
   }
 
-  .add-btn:hover {
-    opacity: 0.85;
+  .tier-btn:hover {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent, #fff);
   }
 
   .projects-section {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 1.5rem;
     margin-top: 0.5rem;
   }
 
@@ -270,29 +259,35 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-muted);
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 1rem 0;
   }
 
-  .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
   }
 
-  .project-item {
+  .project-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 1rem;
+    padding: 14px 16px;
     background: var(--background-secondary);
     border: 1px solid var(--background-modifier-border);
-    border-radius: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .project-card:hover {
+    border-color: var(--interactive-accent);
   }
 
   .project-info {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 2px;
   }
 
   .project-name {
@@ -307,19 +302,20 @@
   }
 
   .open-btn {
-    padding: 0.4rem 0.9rem;
-    background: var(--interactive-accent);
-    color: var(--text-on-accent, #fff);
+    padding: 6px 14px;
+    background: var(--interactive-normal);
+    color: var(--text-normal);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.15s;
+    transition: background 0.15s, color 0.15s;
     font-family: inherit;
   }
 
   .open-btn:hover {
-    opacity: 0.85;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent, #fff);
   }
 </style>
