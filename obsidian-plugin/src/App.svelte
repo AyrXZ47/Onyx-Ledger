@@ -6,7 +6,7 @@
   let engineState = $state('Loading Iron Core...');
   let isCoreReady = $state(false);
   let workspaces = $state<Array<{id: string; name: string; type: string; tier: string}>>([]);
-  let expandedTier = $state<string | null>(null);
+  let expandedTier = $state<string>('Personal');
   let justCreatedId = $state<string | null>(null);
 
   const tiers = [
@@ -101,9 +101,9 @@
 
 <style>
   .onyx-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     font-family: var(--font-interface);
     color: var(--text-normal);
   }
@@ -112,14 +112,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     border-bottom: 1px solid var(--background-modifier-border);
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
   }
 
   .onyx-title {
     margin: 0;
-    font-size: 2em;
+    font-size: 2.4em;
     font-weight: 700;
     color: var(--text-normal);
   }
@@ -130,7 +130,7 @@
     border: none;
     color: var(--text-muted);
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     border-radius: var(--radius-s);
     transition: color 0.2s ease, background 0.2s ease;
   }
@@ -142,7 +142,7 @@
 
   .onyx-loading {
     text-align: center;
-    padding: 3rem;
+    padding: 4rem;
     color: var(--text-muted);
     font-family: var(--font-monospace);
   }
@@ -150,11 +150,11 @@
   .tier-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 2rem;
     align-items: start;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .tier-row {
       grid-template-columns: 1fr;
     }
@@ -163,18 +163,19 @@
   .tier-panel {
     background: var(--background-secondary);
     border: 2px solid var(--background-modifier-border);
-    border-radius: var(--radius-l);
+    border-radius: 16px;
     overflow: hidden;
-    transition: border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
 
   .tier-panel.tier-expanded {
     border-color: var(--interactive-accent);
-    box-shadow: 0 0 0 1px var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--interactive-accent), 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: color-mix(in srgb, var(--interactive-accent) 6%, var(--background-secondary));
   }
 
   .tier-panel.tier-dimmed {
-    opacity: 0.35;
+    opacity: 0.3;
   }
 
   .tier-header {
@@ -182,7 +183,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem 2rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -195,21 +196,25 @@
     background: var(--background-modifier-hover);
   }
 
+  .tier-panel.tier-expanded .tier-header:hover {
+    background: color-mix(in srgb, var(--interactive-accent) 10%, var(--background-secondary));
+  }
+
   .tier-header-left {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .tier-name {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 700;
     color: var(--text-normal);
   }
 
   .tier-badge {
-    font-size: 0.7em;
-    padding: 2px 10px;
+    font-size: 0.75em;
+    padding: 3px 12px;
     border-radius: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -237,24 +242,24 @@
   }
 
   .tier-body {
-    padding: 0 1.5rem 1.25rem;
+    padding: 0 2rem 1.5rem;
   }
 
   .tier-desc {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     color: var(--text-muted);
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 1em;
+    line-height: 1.6;
   }
 
   .tier-btn {
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 0;
     background: var(--interactive-normal);
     color: var(--text-normal);
     border: none;
     border-radius: var(--radius-m);
-    font-size: 0.85em;
+    font-size: 0.95em;
     font-weight: 600;
     cursor: pointer;
     font-family: inherit;
@@ -270,8 +275,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    padding: 10px 14px;
+    margin-top: 12px;
+    padding: 12px 16px;
     background: var(--background-primary-alt);
     border: 1px solid var(--interactive-accent);
     border-radius: var(--radius-m);
@@ -284,18 +289,18 @@
   }
 
   .created-name {
-    font-size: 0.85em;
+    font-size: 0.9em;
     font-weight: 500;
     color: var(--text-normal);
   }
 
   .open-btn {
-    padding: 4px 14px;
+    padding: 6px 16px;
     background: var(--interactive-accent);
     color: var(--text-on-accent);
     border: none;
     border-radius: var(--radius-s);
-    font-size: 0.8em;
+    font-size: 0.85em;
     font-weight: 600;
     cursor: pointer;
     font-family: inherit;
