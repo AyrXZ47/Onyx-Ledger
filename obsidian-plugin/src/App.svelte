@@ -100,219 +100,122 @@
 </div>
 
 <style>
+  /* === CONTENEDOR GLOBAL === */
   .onyx-container {
+    /* Forzamos el ancho y el centrado absoluto */
     width: 100% !important;
-    max-width: 1100px !important;
+    max-width: 800px !important;
     margin: 0 auto !important;
-    padding: 2.5rem 2rem !important;
+    padding: 2rem 1rem !important;
     font-family: var(--font-interface);
     color: var(--text-normal);
     box-sizing: border-box;
   }
 
+  /* === CABECERA === */
   .onyx-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem !important;
+    margin-bottom: 3rem !important; /* Más respiro abajo */
     border-bottom: 2px solid var(--background-modifier-border);
-    padding-bottom: 1.25rem;
+    padding-bottom: 1rem;
   }
 
   .onyx-title {
     margin: 0;
-    font-size: 2.4em;
+    font-size: 2.2em;
     font-weight: 800;
     letter-spacing: -0.5px;
     color: var(--text-normal);
   }
 
-  .onyx-icon-btn {
-    background: transparent;
-    box-shadow: none;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    padding: 10px;
-    border-radius: var(--radius-s);
-    transition: color 0.2s ease, background 0.2s ease;
-  }
-
-  .onyx-icon-btn:hover {
-    color: var(--text-normal);
-    background: var(--background-modifier-hover);
-  }
-
-  .onyx-loading {
-    text-align: center;
-    padding: 4rem;
-    color: var(--text-muted);
-    font-family: var(--font-monospace);
-  }
-
-  .tier-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: start;
-    width: 100% !important;
-  }
-
-  @media (max-width: 800px) {
-    .tier-row {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .tier-panel {
+  /* === EL ACORDEÓN (El corazón del diseño) === */
+  /* Asumo que OpenCode usó <details> y <summary> o divs con clases similares */
+  /* Aplica estas reglas a los contenedores principales de tus opciones */
+  
+  details {
     width: 100% !important;
     background: var(--background-secondary);
-    border: 2px solid var(--background-modifier-border);
-    border-radius: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-l);
+    margin-bottom: 1.5rem !important; /* Padding entre cada acordeón */
     overflow: hidden;
-    transition: border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transition: border-color 0.2s ease;
   }
 
-  .tier-panel.tier-expanded {
+  details:hover {
     border-color: var(--interactive-accent);
-    box-shadow: 0 0 0 2px var(--interactive-accent), 0 4px 20px rgba(0, 0, 0, 0.15);
-    background: color-mix(in srgb, var(--interactive-accent) 6%, var(--background-secondary));
   }
 
-  .tier-panel.tier-dimmed {
-    opacity: 0.3;
-  }
-
-  .tier-header {
+  summary {
+    padding: 1.5rem !important;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100% !important;
-    padding: 1.5rem 2rem !important;
-    background: none;
+    list-style: none; /* Quita la flecha fea por defecto en algunos OS */
+    background: var(--background-primary-alt);
+  }
+
+  /* Oculta la flecha nativa del summary webkit */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Contenido dentro del acordeón al expandirse */
+  .accordion-content, 
+  details > div, 
+  details > p {
+    padding: 1.5rem !important;
+    border-top: 1px solid var(--background-modifier-border);
+    background: var(--background-secondary);
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* === BOTONES === */
+  button.mod-cta, 
+  .onyx-container button {
+    margin-top: 1rem;
+    width: 100%; /* Botones anchos y fáciles de clickear */
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: var(--radius-m);
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
     border: none;
     cursor: pointer;
-    font-family: inherit;
-    color: var(--text-normal);
-    transition: background 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.1s ease;
   }
 
-  .tier-header:hover {
-    background: var(--background-modifier-hover);
+  button.mod-cta:hover, 
+  .onyx-container button:hover {
+    opacity: 0.9;
+    /* transform: scale(0.99); */
   }
 
-  .tier-panel.tier-expanded .tier-header:hover {
-    background: color-mix(in srgb, var(--interactive-accent) 10%, var(--background-secondary));
-  }
-
-  .tier-header-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .tier-name {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: var(--text-normal);
-  }
-
-  .tier-badge {
+  /* === ETIQUETAS (Free / Premium) === */
+  .badge {
     font-size: 0.75em;
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 4px 10px;
+    border-radius: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-left: 1rem;
   }
-
+  
   .badge-free {
-    background: var(--background-modifier-success);
+    background-color: var(--background-modifier-success);
     color: var(--text-on-accent);
   }
 
   .badge-premium {
-    background: var(--interactive-accent);
+    background-color: var(--interactive-accent);
     color: var(--text-on-accent);
-  }
-
-  .chevron {
-    color: var(--text-muted);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-  }
-
-  .chevron-open {
-    transform: rotate(180deg);
-  }
-
-  .tier-body {
-    padding: 0 2rem 1.5rem !important;
-  }
-
-  .tier-desc {
-    margin: 0 0 1.25rem;
-    color: var(--text-muted);
-    font-size: 1em;
-    line-height: 1.6;
-  }
-
-  .tier-btn {
-    width: 100% !important;
-    padding: 12px 0 !important;
-    background: var(--interactive-normal);
-    color: var(--text-normal);
-    border: none;
-    border-radius: var(--radius-m);
-    font-size: 0.95em;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .tier-btn:hover {
-    background: var(--interactive-accent);
-    color: var(--text-on-accent);
-  }
-
-  .created-banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-    padding: 12px 16px;
-    background: var(--background-primary-alt);
-    border: 1px solid var(--interactive-accent);
-    border-radius: var(--radius-m);
-    animation: banner-in 0.25s ease-out;
-  }
-
-  @keyframes banner-in {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .created-name {
-    font-size: 0.9em;
-    font-weight: 500;
-    color: var(--text-normal);
-  }
-
-  .open-btn {
-    padding: 6px 16px;
-    background: var(--interactive-accent);
-    color: var(--text-on-accent);
-    border: none;
-    border-radius: var(--radius-s);
-    font-size: 0.85em;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: opacity 0.15s ease;
-  }
-
-  .open-btn:hover {
-    opacity: 0.85;
   }
 </style>
