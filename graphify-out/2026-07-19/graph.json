@@ -21,59 +21,15 @@
   },
   "nodes": [
     {
-      "label": "App.svelte",
-      "file_type": "code",
-      "source_file": "obsidian-plugin/src/App.svelte",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "obsidian_plugin_src_app",
-      "community": 1,
-      "community_name": "Obsidian Plugin Core",
-      "norm_label": "app.svelte"
-    },
-    {
-      "label": "onyx-core",
-      "file_type": "code",
-      "source_file": "onyx-core",
-      "confidence": "EXTRACTED",
-      "_origin": "ast",
-      "id": "onyx_core",
-      "community": 1,
-      "community_name": "Obsidian Plugin Core",
-      "norm_label": "onyx-core"
-    },
-    {
-      "label": "onyx-core/onyx_core_bg.wasm",
-      "file_type": "code",
-      "source_file": "onyx-core/onyx_core_bg.wasm",
-      "confidence": "EXTRACTED",
-      "_origin": "ast",
-      "id": "onyx_core_bg_wasm",
-      "community": 1,
-      "community_name": "Obsidian Plugin Core",
-      "norm_label": "onyx-core/onyx_core_bg.wasm"
-    },
-    {
-      "label": "svelte/transition",
-      "file_type": "code",
-      "source_file": "svelte/transition",
-      "confidence": "EXTRACTED",
-      "_origin": "ast",
-      "id": "transition",
-      "community": 1,
-      "community_name": "Obsidian Plugin Core",
-      "norm_label": "svelte/transition"
-    },
-    {
       "label": "opencode.json",
       "file_type": "code",
       "source_file": ".opencode/opencode.json",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "opencode_opencode",
       "community": 8,
       "community_name": "Opencode Plugin",
-      "norm_label": "opencode.json",
-      "id": "opencode_opencode"
+      "norm_label": "opencode.json"
     },
     {
       "label": "$schema",
@@ -81,10 +37,10 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L2",
       "_origin": "ast",
+      "id": "opencode_opencode_schema",
       "community": 8,
       "community_name": "Opencode Plugin",
-      "norm_label": "$schema",
-      "id": "opencode_opencode_schema"
+      "norm_label": "$schema"
     },
     {
       "label": "plugin",
@@ -92,10 +48,10 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L3",
       "_origin": "ast",
+      "id": "opencode_opencode_plugin",
       "community": 8,
       "community_name": "Opencode Plugin",
-      "norm_label": "plugin",
-      "id": "opencode_opencode_plugin"
+      "norm_label": "plugin"
     },
     {
       "label": ".opencode/plugins/graphify.js",
@@ -103,10 +59,10 @@
       "source_file": ".opencode/opencode.json",
       "source_location": "L3",
       "_origin": "ast",
+      "id": "ref_opencode_plugins_graphify_js",
       "community": 8,
       "community_name": "Opencode Plugin",
-      "norm_label": ".opencode/plugins/graphify.js",
-      "id": "ref_opencode_plugins_graphify_js"
+      "norm_label": ".opencode/plugins/graphify.js"
     },
     {
       "label": "graphify.js",
@@ -114,10 +70,10 @@
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "opencode_plugins_graphify",
       "community": 12,
       "community_name": "Graphify JS Plugin",
-      "norm_label": "graphify.js",
-      "id": "opencode_plugins_graphify"
+      "norm_label": "graphify.js"
     },
     {
       "label": "GraphifyPlugin()",
@@ -125,10 +81,10 @@
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L12",
       "_origin": "ast",
+      "id": "opencode_plugins_graphify_graphifyplugin",
       "community": 12,
       "community_name": "Graphify JS Plugin",
-      "norm_label": "graphifyplugin()",
-      "id": "opencode_plugins_graphify_graphifyplugin"
+      "norm_label": "graphifyplugin()"
     },
     {
       "label": "IMPORTANT: keep the reminder string free of backticks and $(...) constructs.",
@@ -136,10 +92,10 @@
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L4",
       "_origin": "ast",
+      "id": "opencode_plugins_graphify_rationale_4",
       "community": 12,
       "community_name": "Graphify JS Plugin",
-      "norm_label": "important: keep the reminder string free of backticks and $(...) constructs.",
-      "id": "opencode_plugins_graphify_rationale_4"
+      "norm_label": "important: keep the reminder string free of backticks and $(...) constructs."
     },
     {
       "label": "esbuild.config.mjs",
@@ -149,8 +105,8 @@
       "_origin": "ast",
       "community": 13,
       "norm_label": "esbuild.config.mjs",
-      "community_name": "ESBuild Config",
-      "id": "obsidian_plugin_esbuild_config"
+      "id": "obsidian_plugin_esbuild_config",
+      "community_name": "ESBuild Config"
     },
     {
       "label": "manifest.json",
@@ -160,8 +116,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "manifest.json",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest"
+      "id": "obsidian_plugin_manifest",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "id",
@@ -171,8 +127,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "id",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_id"
+      "id": "obsidian_plugin_manifest_id",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "name",
@@ -182,8 +138,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "name",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_name"
+      "id": "obsidian_plugin_manifest_name",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "version",
@@ -193,8 +149,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "version",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_version"
+      "id": "obsidian_plugin_manifest_version",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "minAppVersion",
@@ -204,8 +160,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "minappversion",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_minappversion"
+      "id": "obsidian_plugin_manifest_minappversion",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "description",
@@ -215,8 +171,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "description",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_description"
+      "id": "obsidian_plugin_manifest_description",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "author",
@@ -226,8 +182,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "author",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_author"
+      "id": "obsidian_plugin_manifest_author",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "authorUrl",
@@ -237,8 +193,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "authorurl",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_authorurl"
+      "id": "obsidian_plugin_manifest_authorurl",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "isDesktopOnly",
@@ -248,8 +204,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "isdesktoponly",
-      "community_name": "Plugin Manifest",
-      "id": "obsidian_plugin_manifest_isdesktoponly"
+      "id": "obsidian_plugin_manifest_isdesktoponly",
+      "community_name": "Plugin Manifest"
     },
     {
       "label": "package.json",
@@ -259,8 +215,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "package.json",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package"
+      "id": "obsidian_plugin_package",
+      "community_name": "Package Configuration"
     },
     {
       "label": "name",
@@ -270,8 +226,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "name",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_name"
+      "id": "obsidian_plugin_package_name",
+      "community_name": "Package Configuration"
     },
     {
       "label": "version",
@@ -281,8 +237,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "version",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_version"
+      "id": "obsidian_plugin_package_version",
+      "community_name": "Package Configuration"
     },
     {
       "label": "description",
@@ -292,8 +248,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "description",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_description"
+      "id": "obsidian_plugin_package_description",
+      "community_name": "Package Configuration"
     },
     {
       "label": "main",
@@ -303,8 +259,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "main",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_main"
+      "id": "obsidian_plugin_package_main",
+      "community_name": "Package Configuration"
     },
     {
       "label": "scripts",
@@ -314,8 +270,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "scripts",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_scripts"
+      "id": "obsidian_plugin_package_scripts",
+      "community_name": "Package Configuration"
     },
     {
       "label": "test",
@@ -325,8 +281,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "test",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_scripts_test"
+      "id": "obsidian_plugin_package_scripts_test",
+      "community_name": "Package Configuration"
     },
     {
       "label": "build",
@@ -336,8 +292,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "build",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_scripts_build"
+      "id": "obsidian_plugin_package_scripts_build",
+      "community_name": "Package Configuration"
     },
     {
       "label": "dev",
@@ -347,8 +303,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "dev",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_scripts_dev"
+      "id": "obsidian_plugin_package_scripts_dev",
+      "community_name": "Package Configuration"
     },
     {
       "label": "keywords",
@@ -358,8 +314,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "keywords",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_keywords"
+      "id": "obsidian_plugin_package_keywords",
+      "community_name": "Package Configuration"
     },
     {
       "label": "author",
@@ -369,8 +325,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "author",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_author"
+      "id": "obsidian_plugin_package_author",
+      "community_name": "Package Configuration"
     },
     {
       "label": "license",
@@ -380,8 +336,8 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "license",
-      "community_name": "Package Configuration",
-      "id": "obsidian_plugin_package_license"
+      "id": "obsidian_plugin_package_license",
+      "community_name": "Package Configuration"
     },
     {
       "label": "dependencies",
@@ -391,8 +347,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "dependencies",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_dependencies"
+      "id": "obsidian_plugin_package_dependencies",
+      "community_name": "Dependencies"
     },
     {
       "label": "obsidian",
@@ -402,8 +358,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "obsidian",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_dependencies_obsidian"
+      "id": "obsidian_plugin_package_dependencies_obsidian",
+      "community_name": "Dependencies"
     },
     {
       "label": "obsidian",
@@ -413,8 +369,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "obsidian",
-      "community_name": "Dependencies",
-      "id": "obsidian"
+      "id": "obsidian",
+      "community_name": "Dependencies"
     },
     {
       "label": "onyx-core",
@@ -424,8 +380,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "onyx-core",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_dependencies_onyx_core"
+      "id": "obsidian_plugin_package_dependencies_onyx_core",
+      "community_name": "Dependencies"
     },
     {
       "label": "onyx-core",
@@ -435,8 +391,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "onyx-core",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_json_onyx_core"
+      "id": "obsidian_plugin_package_json_onyx_core",
+      "community_name": "Dependencies"
     },
     {
       "label": "svelte",
@@ -446,8 +402,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "svelte",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_dependencies_svelte"
+      "id": "obsidian_plugin_package_dependencies_svelte",
+      "community_name": "Dependencies"
     },
     {
       "label": "svelte",
@@ -457,8 +413,8 @@
       "_origin": "ast",
       "community": 7,
       "norm_label": "svelte",
-      "community_name": "Dependencies",
-      "id": "obsidian_plugin_package_json_svelte"
+      "id": "obsidian_plugin_package_json_svelte",
+      "community_name": "Dependencies"
     },
     {
       "label": "devDependencies",
@@ -468,8 +424,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "devdependencies",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies"
+      "id": "obsidian_plugin_package_devdependencies",
+      "community_name": "Build Tooling"
     },
     {
       "label": "@types/node",
@@ -479,8 +435,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "@types/node",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies_types_node"
+      "id": "obsidian_plugin_package_devdependencies_types_node",
+      "community_name": "Build Tooling"
     },
     {
       "label": "@types/node",
@@ -490,8 +446,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "@types/node",
-      "community_name": "Build Tooling",
-      "id": "types_node"
+      "id": "types_node",
+      "community_name": "Build Tooling"
     },
     {
       "label": "esbuild",
@@ -501,8 +457,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "esbuild",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies_esbuild"
+      "id": "obsidian_plugin_package_devdependencies_esbuild",
+      "community_name": "Build Tooling"
     },
     {
       "label": "esbuild",
@@ -512,8 +468,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "esbuild",
-      "community_name": "Build Tooling",
-      "id": "esbuild"
+      "id": "esbuild",
+      "community_name": "Build Tooling"
     },
     {
       "label": "esbuild-svelte",
@@ -523,8 +479,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "esbuild-svelte",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies_esbuild_svelte"
+      "id": "obsidian_plugin_package_devdependencies_esbuild_svelte",
+      "community_name": "Build Tooling"
     },
     {
       "label": "esbuild-svelte",
@@ -534,8 +490,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "esbuild-svelte",
-      "community_name": "Build Tooling",
-      "id": "esbuild_svelte"
+      "id": "esbuild_svelte",
+      "community_name": "Build Tooling"
     },
     {
       "label": "svelte-preprocess",
@@ -545,8 +501,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "svelte-preprocess",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies_svelte_preprocess"
+      "id": "obsidian_plugin_package_devdependencies_svelte_preprocess",
+      "community_name": "Build Tooling"
     },
     {
       "label": "svelte-preprocess",
@@ -556,8 +512,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "svelte-preprocess",
-      "community_name": "Build Tooling",
-      "id": "svelte_preprocess"
+      "id": "svelte_preprocess",
+      "community_name": "Build Tooling"
     },
     {
       "label": "typescript",
@@ -567,8 +523,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "typescript",
-      "community_name": "Build Tooling",
-      "id": "obsidian_plugin_package_devdependencies_typescript"
+      "id": "obsidian_plugin_package_devdependencies_typescript",
+      "community_name": "Build Tooling"
     },
     {
       "label": "typescript",
@@ -578,8 +534,19 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "typescript",
-      "community_name": "Build Tooling",
-      "id": "typescript"
+      "id": "typescript",
+      "community_name": "Build Tooling"
+    },
+    {
+      "label": "App.svelte",
+      "file_type": "code",
+      "source_file": "obsidian-plugin/src/App.svelte",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "app.svelte",
+      "id": "obsidian_plugin_src_app",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "onyx-core",
@@ -589,8 +556,30 @@
       "_origin": "ast",
       "community": 14,
       "norm_label": "onyx-core",
-      "community_name": "Onyx Core WASM",
-      "id": "onyx_core_onyx_core"
+      "id": "onyx_core_onyx_core",
+      "community_name": "Onyx Core WASM"
+    },
+    {
+      "label": "onyx-core/onyx_core_bg.wasm",
+      "file_type": "code",
+      "source_file": "onyx-core/onyx_core_bg.wasm",
+      "confidence": "EXTRACTED",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "onyx-core/onyx_core_bg.wasm",
+      "id": "onyx_core_bg_wasm",
+      "community_name": "Obsidian Plugin Core"
+    },
+    {
+      "label": "svelte/transition",
+      "file_type": "code",
+      "source_file": "svelte/transition",
+      "confidence": "EXTRACTED",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "svelte/transition",
+      "id": "transition",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "OnyxView.ts",
@@ -600,8 +589,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": "onyxview.ts",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview"
+      "id": "obsidian_plugin_src_onyxview",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "OnyxView",
@@ -611,8 +600,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": "onyxview",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview"
+      "id": "obsidian_plugin_src_onyxview_onyxview",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".constructor()",
@@ -622,8 +611,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".constructor()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview_constructor"
+      "id": "obsidian_plugin_src_onyxview_onyxview_constructor",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".getViewType()",
@@ -633,8 +622,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".getviewtype()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview_getviewtype"
+      "id": "obsidian_plugin_src_onyxview_onyxview_getviewtype",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".getDisplayText()",
@@ -644,8 +633,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".getdisplaytext()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview_getdisplaytext"
+      "id": "obsidian_plugin_src_onyxview_onyxview_getdisplaytext",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".onOpen()",
@@ -655,8 +644,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".onopen()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview_onopen"
+      "id": "obsidian_plugin_src_onyxview_onyxview_onopen",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".onClose()",
@@ -666,8 +655,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".onclose()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_onyxview_onyxview_onclose"
+      "id": "obsidian_plugin_src_onyxview_onyxview_onclose",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "main.ts",
@@ -677,8 +666,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": "main.ts",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_main"
+      "id": "obsidian_plugin_src_main",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "OnyxLedgerPlugin",
@@ -688,8 +677,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": "onyxledgerplugin",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_main_onyxledgerplugin"
+      "id": "obsidian_plugin_src_main_onyxledgerplugin",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".onload()",
@@ -699,8 +688,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".onload()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_main_onyxledgerplugin_onload"
+      "id": "obsidian_plugin_src_main_onyxledgerplugin_onload",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": ".activateView()",
@@ -710,8 +699,8 @@
       "_origin": "ast",
       "community": 1,
       "norm_label": ".activateview()",
-      "community_name": "Obsidian Plugin Core",
-      "id": "obsidian_plugin_src_main_onyxledgerplugin_activateview"
+      "id": "obsidian_plugin_src_main_onyxledgerplugin_activateview",
+      "community_name": "Obsidian Plugin Core"
     },
     {
       "label": "tsconfig.json",
@@ -721,8 +710,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "tsconfig.json",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig"
+      "id": "obsidian_plugin_tsconfig",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "compilerOptions",
@@ -732,8 +721,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "compileroptions",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions"
+      "id": "obsidian_plugin_tsconfig_compileroptions",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "target",
@@ -743,8 +732,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "target",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_target"
+      "id": "obsidian_plugin_tsconfig_compileroptions_target",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "module",
@@ -754,8 +743,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "module",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_module"
+      "id": "obsidian_plugin_tsconfig_compileroptions_module",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "strict",
@@ -765,8 +754,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "strict",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_strict"
+      "id": "obsidian_plugin_tsconfig_compileroptions_strict",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "esModuleInterop",
@@ -776,8 +765,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "esmoduleinterop",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_esmoduleinterop"
+      "id": "obsidian_plugin_tsconfig_compileroptions_esmoduleinterop",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "skipLibCheck",
@@ -787,8 +776,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "skiplibcheck",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_skiplibcheck"
+      "id": "obsidian_plugin_tsconfig_compileroptions_skiplibcheck",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "forceConsistentCasingInFileNames",
@@ -798,8 +787,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "forceconsistentcasinginfilenames",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_forceconsistentcasinginfilenames"
+      "id": "obsidian_plugin_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "outDir",
@@ -809,8 +798,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "outdir",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_outdir"
+      "id": "obsidian_plugin_tsconfig_compileroptions_outdir",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "verbatimModuleSyntax",
@@ -820,8 +809,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "verbatimmodulesyntax",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_compileroptions_verbatimmodulesyntax"
+      "id": "obsidian_plugin_tsconfig_compileroptions_verbatimmodulesyntax",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "include",
@@ -831,8 +820,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "include",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_include"
+      "id": "obsidian_plugin_tsconfig_include",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "src/**/*.ts",
@@ -842,8 +831,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "src/**/*.ts",
-      "community_name": "TypeScript Configuration",
-      "id": "ref_src_ts"
+      "id": "ref_src_ts",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "exclude",
@@ -853,8 +842,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "exclude",
-      "community_name": "TypeScript Configuration",
-      "id": "obsidian_plugin_tsconfig_exclude"
+      "id": "obsidian_plugin_tsconfig_exclude",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "node_modules",
@@ -864,8 +853,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "node_modules",
-      "community_name": "TypeScript Configuration",
-      "id": "ref_node_modules"
+      "id": "ref_node_modules",
+      "community_name": "TypeScript Configuration"
     },
     {
       "label": "lib.rs",
@@ -875,8 +864,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "lib.rs",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib"
+      "id": "src_rust_src_lib",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "WorkspaceType",
@@ -886,8 +875,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "workspacetype",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_workspacetype"
+      "id": "src_rust_src_lib_workspacetype",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Entry",
@@ -897,8 +886,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "entry",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_entry"
+      "id": "src_rust_src_lib_entry",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "String",
@@ -908,8 +897,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "string",
-      "community_name": "Rust Core Library",
-      "id": "string"
+      "id": "string",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Account",
@@ -919,8 +908,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "account",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_account"
+      "id": "src_rust_src_lib_account",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Transaction",
@@ -930,8 +919,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "transaction",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_transaction"
+      "id": "src_rust_src_lib_transaction",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Vec",
@@ -941,8 +930,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "vec",
-      "community_name": "Rust Core Library",
-      "id": "vec"
+      "id": "vec",
+      "community_name": "Rust Core Library"
     },
     {
       "label": ".is_valid()",
@@ -952,8 +941,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".is_valid()",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_transaction_is_valid"
+      "id": "src_rust_src_lib_transaction_is_valid",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Ledger",
@@ -963,8 +952,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "ledger",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_ledger"
+      "id": "src_rust_src_lib_ledger",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Workspace",
@@ -974,8 +963,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "workspace",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_workspace"
+      "id": "src_rust_src_lib_workspace",
+      "community_name": "Rust Core Library"
     },
     {
       "label": ".new()",
@@ -985,8 +974,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".new()",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_workspace_new"
+      "id": "src_rust_src_lib_workspace_new",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "init_system()",
@@ -996,8 +985,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "init_system()",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_init_system"
+      "id": "src_rust_src_lib_init_system",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "create_workspace()",
@@ -1007,8 +996,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "create_workspace()",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_create_workspace"
+      "id": "src_rust_src_lib_create_workspace",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "validate_and_add_transaction()",
@@ -1018,8 +1007,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "validate_and_add_transaction()",
-      "community_name": "Rust Core Library",
-      "id": "src_rust_src_lib_validate_and_add_transaction"
+      "id": "src_rust_src_lib_validate_and_add_transaction",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "Result",
@@ -1029,8 +1018,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "result",
-      "community_name": "Rust Core Library",
-      "id": "result"
+      "id": "result",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "JsValue",
@@ -1040,8 +1029,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "jsvalue",
-      "community_name": "Rust Core Library",
-      "id": "jsvalue"
+      "id": "jsvalue",
+      "community_name": "Rust Core Library"
     },
     {
       "label": "App.svelte",
@@ -1051,8 +1040,8 @@
       "_origin": "ast",
       "community": 15,
       "norm_label": "app.svelte",
-      "community_name": "Svelte App",
-      "id": "src_app"
+      "id": "src_app",
+      "community_name": "Svelte App"
     },
     {
       "label": "svelte",
@@ -1062,8 +1051,8 @@
       "_origin": "ast",
       "community": 16,
       "norm_label": "svelte",
-      "community_name": "Svelte Framework",
-      "id": "svelte_svelte"
+      "id": "svelte_svelte",
+      "community_name": "Svelte Framework"
     },
     {
       "label": "Ponytail Lazy Senior Dev Mode",
@@ -1076,8 +1065,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "ponytail lazy senior dev mode",
-      "community_name": "Project Concepts",
-      "id": "agents_ponytail"
+      "id": "agents_ponytail",
+      "community_name": "Project Concepts"
     },
     {
       "label": "RTK (Rust Token Killer)",
@@ -1090,8 +1079,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "rtk (rust token killer)",
-      "community_name": "Project Concepts",
-      "id": "agents_rtk"
+      "id": "agents_rtk",
+      "community_name": "Project Concepts"
     },
     {
       "label": "Graphify",
@@ -1104,8 +1093,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "graphify",
-      "community_name": "Project Concepts",
-      "id": "agents_graphify"
+      "id": "agents_graphify",
+      "community_name": "Project Concepts"
     },
     {
       "label": "Contributor Covenant Code of Conduct v2.0",
@@ -1118,8 +1107,8 @@
       "contributor": null,
       "community": 10,
       "norm_label": "contributor covenant code of conduct v2.0",
-      "community_name": "Code of Conduct",
-      "id": "code_of_conduct_contributor_covenant"
+      "id": "code_of_conduct_contributor_covenant",
+      "community_name": "Code of Conduct"
     },
     {
       "label": "Code of Conduct Enforcement Contact",
@@ -1132,8 +1121,8 @@
       "contributor": null,
       "community": 10,
       "norm_label": "code of conduct enforcement contact",
-      "community_name": "Code of Conduct",
-      "id": "code_of_conduct_enforcement_contact"
+      "id": "code_of_conduct_enforcement_contact",
+      "community_name": "Code of Conduct"
     },
     {
       "label": "Mozilla Code of Conduct Enforcement Ladder",
@@ -1146,8 +1135,8 @@
       "contributor": null,
       "community": 10,
       "norm_label": "mozilla code of conduct enforcement ladder",
-      "community_name": "Code of Conduct",
-      "id": "code_of_conduct_mozilla_enforcement_ladder"
+      "id": "code_of_conduct_mozilla_enforcement_ladder",
+      "community_name": "Code of Conduct"
     },
     {
       "label": "Contributing Guidelines",
@@ -1160,8 +1149,8 @@
       "contributor": null,
       "community": 11,
       "norm_label": "contributing guidelines",
-      "community_name": "Contributing",
-      "id": "contributing_guidelines"
+      "id": "contributing_guidelines",
+      "community_name": "Contributing"
     },
     {
       "label": "GitHub Issues",
@@ -1174,8 +1163,8 @@
       "contributor": null,
       "community": 11,
       "norm_label": "github issues",
-      "community_name": "Contributing",
-      "id": "contributing_github_issues"
+      "id": "contributing_github_issues",
+      "community_name": "Contributing"
     },
     {
       "label": "Pull Requests",
@@ -1188,8 +1177,8 @@
       "contributor": null,
       "community": 11,
       "norm_label": "pull requests",
-      "community_name": "Contributing",
-      "id": "contributing_pull_requests"
+      "id": "contributing_pull_requests",
+      "community_name": "Contributing"
     },
     {
       "label": "RTK (Rust Token Killer)",
@@ -1202,8 +1191,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "rtk (rust token killer)",
-      "community_name": "Project Concepts",
-      "id": "conventions_rtk"
+      "id": "conventions_rtk",
+      "community_name": "Project Concepts"
     },
     {
       "label": "Multi-License Model",
@@ -1216,8 +1205,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "multi-license model",
-      "community_name": "License Model",
-      "id": "readme_multi_license_model"
+      "id": "readme_multi_license_model",
+      "community_name": "License Model"
     },
     {
       "label": "Apache 2.0 License",
@@ -1230,8 +1219,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "apache 2.0 license",
-      "community_name": "License Model",
-      "id": "readme_apache_2_0"
+      "id": "readme_apache_2_0",
+      "community_name": "License Model"
     },
     {
       "label": "CERN-OHL-P v2 License",
@@ -1244,8 +1233,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "cern-ohl-p v2 license",
-      "community_name": "License Model",
-      "id": "readme_cern_ohl_p_v2"
+      "id": "readme_cern_ohl_p_v2",
+      "community_name": "License Model"
     },
     {
       "label": "CC BY 4.0 License",
@@ -1258,8 +1247,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "cc by 4.0 license",
-      "community_name": "License Model",
-      "id": "readme_cc_by_4_0"
+      "id": "readme_cc_by_4_0",
+      "community_name": "License Model"
     },
     {
       "label": "Obsidian Plugin",
@@ -1272,8 +1261,8 @@
       "contributor": null,
       "community": 17,
       "norm_label": "obsidian plugin",
-      "community_name": "Obsidian Plugin",
-      "id": "obsidian_plugin_pnpm_workspace_obsidian_plugin"
+      "id": "obsidian_plugin_pnpm_workspace_obsidian_plugin",
+      "community_name": "Obsidian Plugin"
     },
     {
       "label": "esbuild",
@@ -1286,8 +1275,8 @@
       "contributor": null,
       "community": 17,
       "norm_label": "esbuild",
-      "community_name": "Obsidian Plugin",
-      "id": "obsidian_plugin_pnpm_workspace_esbuild"
+      "id": "obsidian_plugin_pnpm_workspace_esbuild",
+      "community_name": "Obsidian Plugin"
     },
     {
       "label": "svelte-preprocess",
@@ -1300,50 +1289,11 @@
       "contributor": null,
       "community": 17,
       "norm_label": "svelte-preprocess",
-      "community_name": "Obsidian Plugin",
-      "id": "obsidian_plugin_pnpm_workspace_svelte_preprocess"
+      "id": "obsidian_plugin_pnpm_workspace_svelte_preprocess",
+      "community_name": "Obsidian Plugin"
     }
   ],
   "links": [
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "obsidian-plugin/src/App.svelte",
-      "_origin": "ast",
-      "source": "obsidian_plugin_src_app",
-      "target": "onyx_core",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "obsidian-plugin/src/App.svelte",
-      "_origin": "ast",
-      "source": "obsidian_plugin_src_app",
-      "target": "onyx_core_bg_wasm",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "obsidian-plugin/src/App.svelte",
-      "_origin": "ast",
-      "source": "obsidian_plugin_src_app",
-      "target": "transition",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "obsidian-plugin/src/OnyxView.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "obsidian_plugin_src_onyxview",
-      "target": "obsidian_plugin_src_app"
-    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -1351,9 +1301,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "opencode_opencode",
-      "target": "opencode_opencode_plugin"
+      "target": "opencode_opencode_plugin",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1362,9 +1312,9 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "opencode_opencode",
-      "target": "opencode_opencode_schema"
+      "target": "opencode_opencode_schema",
+      "confidence_score": 1.0
     },
     {
       "relation": "extends",
@@ -1374,9 +1324,9 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "opencode_opencode_plugin",
-      "target": "ref_opencode_plugins_graphify_js"
+      "target": "ref_opencode_plugins_graphify_js",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1385,9 +1335,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "opencode_plugins_graphify",
-      "target": "opencode_plugins_graphify_graphifyplugin"
+      "target": "opencode_plugins_graphify_graphifyplugin",
+      "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
@@ -1396,9 +1346,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "opencode_plugins_graphify_rationale_4",
-      "target": "opencode_plugins_graphify"
+      "target": "opencode_plugins_graphify",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1814,6 +1764,36 @@
       "confidence_score": 1.0,
       "source": "obsidian_plugin_package_devdependencies_typescript",
       "target": "typescript"
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "obsidian-plugin/src/App.svelte",
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "obsidian_plugin_src_app",
+      "target": "onyx_core_bg_wasm"
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "obsidian-plugin/src/App.svelte",
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "obsidian_plugin_src_app",
+      "target": "transition"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "obsidian-plugin/src/OnyxView.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "obsidian_plugin_src_onyxview",
+      "target": "obsidian_plugin_src_app"
     },
     {
       "relation": "imports_from",
@@ -2570,5 +2550,5 @@
       "source_file": "README.md"
     }
   ],
-  "built_at_commit": "674445964b7b6d38c041ba5bd536359afeda383e"
+  "built_at_commit": "d064aa3444cc34a47d90333f1770fb6827ad44e1"
 }

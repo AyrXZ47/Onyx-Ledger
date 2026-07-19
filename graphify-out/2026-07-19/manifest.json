@@ -25,9 +25,9 @@
     "semantic_hash": "ae47baa48b5aee814aa967ce9d0410b0"
   },
   "obsidian-plugin/src/App.svelte": {
-    "mtime": 1784498200.2111685,
-    "ast_hash": "219203b74eb32198aa87193965a28eb3",
-    "semantic_hash": ""
+    "mtime": 1784317819.3078654,
+    "ast_hash": "1e398cc56f6f7d9ff4f214e8004d07f8",
+    "semantic_hash": "1e398cc56f6f7d9ff4f214e8004d07f8"
   },
   "obsidian-plugin/src/OnyxView.ts": {
     "mtime": 1783583709.6891108,

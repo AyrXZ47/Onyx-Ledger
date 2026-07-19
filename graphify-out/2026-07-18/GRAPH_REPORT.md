@@ -1,18 +1,12 @@
-# Graph Report - Onyx Ledger  (2026-07-19)
+# Graph Report - .  (2026-07-18)
 
 ## Corpus Check
-- 16 files · ~4,974 words
-- Verdict: corpus is large enough that graph structure adds value.
+- Corpus is ~4,880 words - fits in a single context window. You may not need a graph.
 
 ## Summary
-- 112 nodes · 112 edges · 18 communities (17 shown, 1 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.88)
+- 113 nodes · 115 edges · 17 communities (16 shown, 1 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `67444596`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Rust Core Library
@@ -28,7 +22,6 @@
 - Code of Conduct
 - Contributing
 - Graphify JS Plugin
-- Obsidian Plugin
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 9 edges
@@ -43,8 +36,14 @@
 10. `Entry` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Svelte` --semantically_similar_to--> `svelte-preprocess`  [INFERRED] [semantically similar]
+  .serena/project.yml → obsidian-plugin/pnpm-workspace.yaml
 - `RTK (Rust Token Killer)` --semantically_similar_to--> `RTK (Rust Token Killer)`  [INFERRED] [semantically similar]
   AGENTS.md → CONVENTIONS.md
+- `Onyx Ledger` --conceptually_related_to--> `Ponytail Lazy Senior Dev Mode`  [INFERRED]
+  .serena/project.yml → AGENTS.md
+- `Onyx Ledger` --conceptually_related_to--> `Obsidian Plugin`  [INFERRED]
+  .serena/project.yml → obsidian-plugin/pnpm-workspace.yaml
 
 ## Import Cycles
 - None detected.
@@ -52,14 +51,14 @@
 ## Hyperedges (group relationships)
 - **Multi-License Scheme** — readme_multi_license_model, readme_apache_2_0, readme_cern_ohl_p_v2, readme_cc_by_4_0 [EXTRACTED 1.00]
 
-## Communities (18 total, 1 thin omitted)
+## Communities (17 total, 1 thin omitted)
 
 ### Community 0 - "Rust Core Library"
 Cohesion: 0.24
 Nodes (12): JsValue, Result, Account, create_workspace(), Entry, Ledger, Transaction, validate_and_add_transaction() (+4 more)
 
 ### Community 1 - "Obsidian Plugin Core"
-Cohesion: 0.15
+Cohesion: 0.16
 Nodes (4): OnyxLedgerPlugin, OnyxView, onyx-core/onyx_core_bg.wasm, svelte/transition
 
 ### Community 2 - "TypeScript Configuration"
@@ -75,8 +74,8 @@ Cohesion: 0.18
 Nodes (11): esbuild, esbuild-svelte, devDependencies, esbuild, esbuild-svelte, svelte-preprocess, @types/node, typescript (+3 more)
 
 ### Community 5 - "Project Concepts"
-Cohesion: 0.50
-Nodes (4): Graphify, Ponytail Lazy Senior Dev Mode, RTK (Rust Token Killer), RTK (Rust Token Killer)
+Cohesion: 0.25
+Nodes (9): Onyx Ledger, Svelte, Graphify, Ponytail Lazy Senior Dev Mode, RTK (Rust Token Killer), RTK (Rust Token Killer), esbuild, Obsidian Plugin (+1 more)
 
 ### Community 6 - "Plugin Manifest"
 Cohesion: 0.22
@@ -102,12 +101,8 @@ Nodes (3): Contributor Covenant Code of Conduct v2.0, Code of Conduct Enforcemen
 Cohesion: 0.67
 Nodes (3): GitHub Issues, Contributing Guidelines, Pull Requests
 
-### Community 17 - "Obsidian Plugin"
-Cohesion: 0.67
-Nodes (3): esbuild, Obsidian Plugin, svelte-preprocess
-
 ## Knowledge Gaps
-- **50 isolated node(s):** `onyx-core/onyx_core_bg.wasm`, `$schema`, `.opencode/plugins/graphify.js`, `id`, `name` (+45 more)
+- **49 isolated node(s):** `$schema`, `.opencode/plugins/graphify.js`, `id`, `name`, `version` (+44 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -115,10 +110,10 @@ Nodes (3): esbuild, Obsidian Plugin, svelte-preprocess
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `Build Tooling` to `Package Configuration`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Dependencies` to `Package Configuration`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **What connects `onyx-core/onyx_core_bg.wasm`, `$schema`, `.opencode/plugins/graphify.js` to the rest of the system?**
-  _50 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **What connects `$schema`, `.opencode/plugins/graphify.js`, `id` to the rest of the system?**
+  _49 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `TypeScript Configuration` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

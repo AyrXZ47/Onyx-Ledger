@@ -1,16 +1,16 @@
-# Graph Report - Onyx Ledger  (2026-07-19)
+# Graph Report - Onyx Ledger  (2026-07-18)
 
 ## Corpus Check
-- 16 files · ~4,974 words
+- 16 files · ~4,880 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 112 nodes · 112 edges · 18 communities (17 shown, 1 thin omitted)
+- 111 nodes · 111 edges · 18 communities (17 shown, 1 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `67444596`
+- Built from commit: `d064aa34`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -59,7 +59,7 @@ Cohesion: 0.24
 Nodes (12): JsValue, Result, Account, create_workspace(), Entry, Ledger, Transaction, validate_and_add_transaction() (+4 more)
 
 ### Community 1 - "Obsidian Plugin Core"
-Cohesion: 0.15
+Cohesion: 0.16
 Nodes (4): OnyxLedgerPlugin, OnyxView, onyx-core/onyx_core_bg.wasm, svelte/transition
 
 ### Community 2 - "TypeScript Configuration"
@@ -107,7 +107,7 @@ Cohesion: 0.67
 Nodes (3): esbuild, Obsidian Plugin, svelte-preprocess
 
 ## Knowledge Gaps
-- **50 isolated node(s):** `onyx-core/onyx_core_bg.wasm`, `$schema`, `.opencode/plugins/graphify.js`, `id`, `name` (+45 more)
+- **50 isolated node(s):** `$schema`, `.opencode/plugins/graphify.js`, `id`, `name`, `version` (+45 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -118,7 +118,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Dependencies` to `Package Configuration`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **What connects `onyx-core/onyx_core_bg.wasm`, `$schema`, `.opencode/plugins/graphify.js` to the rest of the system?**
+- **What connects `$schema`, `.opencode/plugins/graphify.js`, `id` to the rest of the system?**
   _50 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `TypeScript Configuration` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
