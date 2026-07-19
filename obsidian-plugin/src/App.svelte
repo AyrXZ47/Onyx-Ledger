@@ -102,7 +102,6 @@
 <style>
   /* === CONTENEDOR GLOBAL === */
   .onyx-container {
-    /* Forzamos el ancho y el centrado absoluto */
     width: 100% !important;
     max-width: 800px !important;
     margin: 0 auto !important;
@@ -117,7 +116,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem !important; /* Más respiro abajo */
+    margin-bottom: 3rem !important;
     border-bottom: 2px solid var(--background-modifier-border);
     padding-bottom: 1rem;
   }
@@ -130,25 +129,56 @@
     color: var(--text-normal);
   }
 
-  /* === EL ACORDEÓN (El corazón del diseño) === */
-  /* Asumo que OpenCode usó <details> y <summary> o divs con clases similares */
-  /* Aplica estas reglas a los contenedores principales de tus opciones */
-  
-  details {
-    width: 100% !important;
+  .onyx-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+  .onyx-icon-btn:hover {
+    color: var(--text-normal);
+  }
+
+  /* === LOADING STATE === */
+  .onyx-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+  }
+
+  /* === LAYOUT DE PANELES === */
+  .tier-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tier-panel {
+    flex: 1 1 200px;
     background: var(--background-secondary);
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-l);
-    margin-bottom: 1.5rem !important; /* Padding entre cada acordeón */
     overflow: hidden;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, opacity 0.3s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
   }
 
-  details:hover {
+  .tier-panel.tier-expanded {
     border-color: var(--interactive-accent);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: scale(1.02);
   }
 
-  summary {
+  .tier-panel.tier-dimmed {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* === CABECERA DEL PANEL (Reemplaza a <summary>) === */
+  .tier-header {
     padding: 1.5rem !important;
     font-size: 1.2em;
     font-weight: 600;
@@ -156,31 +186,77 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none; /* Quita la flecha fea por defecto en algunos OS */
     background: var(--background-primary-alt);
+    border: none;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    transition: background 0.2s ease;
+  }
+  .tier-header:hover {
+    background: var(--background-modifier-hover);
   }
 
-  /* Oculta la flecha nativa del summary webkit */
-  summary::-webkit-details-marker {
-    display: none;
+  .tier-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  /* Contenido dentro del acordeón al expandirse */
-  .accordion-content, 
-  details > div, 
-  details > p {
+  .tier-name {
+    font-weight: 600;
+  }
+
+  /* === CUERPO DEL PANEL (Reemplaza a .accordion-content) === */
+  .tier-body {
     padding: 1.5rem !important;
     border-top: 1px solid var(--background-modifier-border);
     background: var(--background-secondary);
     line-height: 1.6;
     color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  /* === BOTONES === */
-  button.mod-cta, 
-  .onyx-container button {
+  .tier-desc {
+    margin: 0;
+    font-size: 0.95em;
+  }
+
+  /* === CHEVRON ICON === */
+  .chevron {
+    transition: transform 0.3s ease;
+  }
+  .chevron.chevron-open {
+    transform: rotate(180deg);
+  }
+
+  /* === ETIQUETAS (Reemplaza a .badge) === */
+  .tier-badge {
+    font-size: 0.75em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-free {
+    background-color: var(--background-modifier-success);
+    color: var(--text-on-accent);
+  }
+
+  .badge-premium {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+  }
+
+  /* === BOTONES PRINCIPALES (Reemplaza a button.mod-cta) === */
+  .tier-btn, 
+  .open-btn {
     margin-top: 1rem;
-    width: 100%; /* Botones anchos y fáciles de clickear */
+    width: 100%;
     padding: 0.75rem 1.5rem !important;
     font-size: 1em;
     font-weight: 600;
@@ -192,30 +268,31 @@
     transition: opacity 0.2s ease, transform 0.1s ease;
   }
 
-  button.mod-cta:hover, 
-  .onyx-container button:hover {
+  .tier-btn:hover, 
+  .open-btn:hover {
     opacity: 0.9;
-    /* transform: scale(0.99); */
   }
 
-  /* === ETIQUETAS (Free / Premium) === */
-  .badge {
-    font-size: 0.75em;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-left: 1rem;
-  }
-  
-  .badge-free {
-    background-color: var(--background-modifier-success);
-    color: var(--text-on-accent);
+  /* === BANNER DE CREACIÓN === */
+  .created-banner {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--background-modifier-success);
+    border-radius: var(--radius-m);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
 
-  .badge-premium {
-    background-color: var(--interactive-accent);
-    color: var(--text-on-accent);
+  .created-name {
+    font-weight: 600;
+    color: var(--text-normal);
+  }
+
+  .open-btn {
+    margin-top: 0 !important;
+    width: auto !important;
+    padding: 0.5rem 1rem !important;
   }
 </style>
