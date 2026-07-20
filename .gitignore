@@ -64,3 +64,4 @@ fp-info-cache
 **/target/
 **/node_modules/
 obsidian-plugin/dist/
+graphify-out/
