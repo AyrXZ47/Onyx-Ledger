@@ -12,6 +12,7 @@ build({
   loader: {
     '.wasm': 'base64'
   },
+  logOverride: { 'empty-import-meta': 'silent' },
   plugins: [
     sveltePlugin({
       preprocess: sveltePreprocess()
