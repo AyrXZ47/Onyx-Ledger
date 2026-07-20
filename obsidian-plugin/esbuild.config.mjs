@@ -4,7 +4,7 @@ import sveltePreprocess from 'svelte-preprocess';
 
 build({
   entryPoints: ['src/main.ts'],
-  outfile: 'dist/main.js', // Volvemos a mandarlo a dist (o a la raíz si prefieres)
+  outfile: 'main.js',
   bundle: true,
   external: ['obsidian'],
   format: 'cjs',

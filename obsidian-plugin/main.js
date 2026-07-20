@@ -6463,12 +6463,12 @@ function slide(node, { delay = 0, duration = 400, easing = cubic_out, axis = "y"
 }
 
 // src/App.svelte
-var root = from_html(`<div class="onyx-loading svelte-1n46o8q"><p> </p></div>`);
-var root_1 = from_html(`<div class="created-banner svelte-1n46o8q"><span class="created-name svelte-1n46o8q"> </span> <button class="open-btn svelte-1n46o8q">Open</button></div>`);
-var root_2 = from_html(`<div class="tier-body svelte-1n46o8q"><p class="tier-desc svelte-1n46o8q"> </p> <button class="tier-btn svelte-1n46o8q">New Workspace</button> <!></div>`);
-var root_3 = from_html(`<div><button class="tier-header svelte-1n46o8q"><span class="tier-header-left svelte-1n46o8q"><span class="tier-name svelte-1n46o8q"> </span> <span> </span></span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button> <!></div>`);
-var root_4 = from_html(`<div class="tier-row svelte-1n46o8q"></div>`);
-var root_5 = from_html(`<div class="onyx-container svelte-1n46o8q"><header class="onyx-header svelte-1n46o8q"><h1 class="onyx-title svelte-1n46o8q">Onyx Ledger</h1> <button class="onyx-icon-btn svelte-1n46o8q" aria-label="Menu" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></header> <!></div>`);
+var root = from_html(`<div class="onyx-loading"><p> </p></div>`);
+var root_1 = from_html(`<div class="created-banner"><span class="created-name"> </span> <button class="open-btn">Open</button></div>`);
+var root_2 = from_html(`<div class="tier-body"><p class="tier-desc"> </p> <button class="tier-btn">New Workspace</button> <!></div>`);
+var root_3 = from_html(`<div><button class="tier-header"><span class="tier-header-left"><span class="tier-name"> </span> <span> </span></span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button> <!></div>`);
+var root_4 = from_html(`<div class="tier-row"></div>`);
+var root_5 = from_html(`<div class="onyx-container"><header class="onyx-header"><h1 class="onyx-title">Onyx Ledger</h1> <button class="onyx-icon-btn" aria-label="Menu" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></header> <!></div>`);
 function App($$anchor, $$props) {
   push($$props, true);
   let engineState = state("Loading Iron Core...");
@@ -6592,17 +6592,17 @@ function App($$anchor, $$props) {
         }
         reset(div_3);
         template_effect(() => {
-          classes = set_class(div_3, 1, "tier-panel svelte-1n46o8q", null, classes, {
+          classes = set_class(div_3, 1, "tier-panel", null, classes, {
             "tier-expanded": get2(isExpanded),
             "tier-dimmed": get2(isDimmed)
           });
           set_text(text_1, get2(t).type);
-          classes_1 = set_class(span_2, 1, "tier-badge svelte-1n46o8q", null, classes_1, {
+          classes_1 = set_class(span_2, 1, "tier-badge", null, classes_1, {
             "badge-free": get2(t).tier === "Free",
             "badge-premium": get2(t).tier !== "Free"
           });
           set_text(text_2, get2(t).tier);
-          classes_2 = set_class(svg, 0, "chevron svelte-1n46o8q", null, classes_2, { "chevron-open": get2(isExpanded) });
+          classes_2 = set_class(svg, 0, "chevron", null, classes_2, { "chevron-open": get2(isExpanded) });
         });
         delegated("click", button, () => toggleTier(get2(t).type));
         append($$anchor3, div_3);

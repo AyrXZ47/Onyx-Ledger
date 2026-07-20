@@ -27,23 +27,61 @@
   color: var(--text-normal);
 }
 
-/* === EL ACORDEÓN === */
-details {
-  width: 100% !important;
+.onyx-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.onyx-icon-btn:hover {
+  color: var(--text-normal);
+}
+
+/* === LOADING === */
+.onyx-loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* === TIER ROW === */
+.tier-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* === TIER PANEL === */
+.tier-panel {
+  flex: 1 1 200px;
   background: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-l);
-  margin-bottom: 1.5rem !important;
   overflow: hidden;
-  transition: border-color 0.2s ease;
-  display: block !important;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.3s ease,
+    transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-details:hover {
+.tier-panel.tier-expanded {
   border-color: var(--interactive-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
 }
 
-summary {
+.tier-panel.tier-dimmed {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* === TIER HEADER === */
+.tier-header {
   padding: 1.5rem !important;
   font-size: 1.2em;
   font-weight: 600;
@@ -51,52 +89,62 @@ summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  list-style: none;
   background: var(--background-primary-alt);
+  border: none;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  transition: background 0.2s ease;
 }
 
-summary::-webkit-details-marker {
-  display: none;
+.tier-header:hover {
+  background: var(--background-modifier-hover);
 }
 
-.accordion-content, 
-details > div, 
-details > p {
+.tier-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tier-name {
+  font-weight: 600;
+}
+
+/* === TIER BODY === */
+.tier-body {
   padding: 1.5rem !important;
   border-top: 1px solid var(--background-modifier-border);
   background: var(--background-secondary);
   line-height: 1.6;
   color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* === BOTONES === */
-button.mod-cta {
-  margin-top: 1rem;
-  width: 100% !important;
-  padding: 0.75rem 1.5rem !important;
-  font-size: 1em;
-  font-weight: 600;
-  border-radius: var(--radius-m);
-  background-color: var(--interactive-accent) !important;
-  color: var(--text-on-accent) !important;
-  border: none;
-  cursor: pointer;
-  display: block;
+.tier-desc {
+  margin: 0;
+  font-size: 0.95em;
 }
 
-button.mod-cta:hover {
-  opacity: 0.9;
+/* === CHEVRON === */
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.chevron.chevron-open {
+  transform: rotate(180deg);
 }
 
 /* === ETIQUETAS === */
-.badge {
+.tier-badge {
   font-size: 0.75em;
   padding: 4px 10px;
   border-radius: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-left: 1rem;
 }
 
 .badge-free {
@@ -107,4 +155,48 @@ button.mod-cta:hover {
 .badge-premium {
   background-color: var(--interactive-accent);
   color: var(--text-on-accent);
+}
+
+/* === BOTONES === */
+.tier-btn,
+.open-btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: var(--radius-m);
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.tier-btn:hover,
+.open-btn:hover {
+  opacity: 0.9;
+}
+
+/* === CREATED BANNER === */
+.created-banner {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--background-modifier-success);
+  border-radius: var(--radius-m);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.created-name {
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.open-btn {
+  margin-top: 0 !important;
+  width: auto !important;
+  padding: 0.5rem 1rem !important;
 }
